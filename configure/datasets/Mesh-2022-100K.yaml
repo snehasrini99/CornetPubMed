@@ -1,0 +1,22 @@
+name: Mesh-2022-100K
+
+train:
+  texts: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/train_texts.npy
+  labels: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/train_labels.npy
+
+valid:
+  size: 8000
+
+test:
+  texts: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/test_texts.npy
+
+embedding:
+  emb_init: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/emb_init.npy
+
+output:
+  res: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/results
+
+labels_binarizer: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/labels_binarizer
+
+model:
+  emb_size: 300
