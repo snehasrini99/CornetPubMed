@@ -8,6 +8,7 @@ from gensim.models import KeyedVectors
 from tqdm import tqdm
 from typing import Union, Iterable
 
+
 def build_vocab(texts: Iterable, w2v_model: Union[KeyedVectors, str], vocab_size=500000,
                 pad='<PAD>', unknown='<UNK>', sep='/SEP/', max_times=1, freq_times=1):
     if isinstance(w2v_model, str):
@@ -18,11 +19,13 @@ def build_vocab(texts: Iterable, w2v_model: Union[KeyedVectors, str], vocab_size
     for word, freq in sorted(counter.items(), key=lambda x: (x[1], x[0] in w2v_model), reverse=True):
         if word in w2v_model or freq >= freq_times:
             vocab.append(word)
+            # We used embedding of '.' as embedding of '/SEP/' symbol.
             word = '.' if word == sep else word
             emb_init.append(w2v_model[word] if word in w2v_model else np.random.uniform(-1.0, 1.0, emb_size))
         if freq < max_times or vocab_size == len(vocab):
             break
     return np.asarray(vocab), np.asarray(emb_init)
+
 
 def get_word_emb(vec_path, vocab_path=None):
     if vocab_path is not None:
@@ -36,6 +39,7 @@ def get_word_emb(vec_path, vocab_path=None):
 def get_data(text_file, label_file=None):
     return np.load(text_file, allow_pickle=True), np.load(label_file, allow_pickle=True) if label_file is not None else None
 
+
 def convert_to_binary(text_file, label_file=None, max_len=None, vocab=None, pad='<PAD>', unknown='<UNK>'):
     with open(text_file) as fp:
         texts = np.asarray([[vocab.get(word, vocab[unknown]) for word in line.split()]
@@ -47,12 +51,14 @@ def convert_to_binary(text_file, label_file=None, max_len=None, vocab=None, pad=
                                  for line in tqdm(fp, desc='Converting labels', leave=False)])
     return truncate_text(texts, max_len, vocab[pad], vocab[unknown]), labels
 
+
 def truncate_text(texts, max_len=500, padding_idx=0, unknown_idx=1):
     if max_len is None:
         return texts
     texts = np.asarray([list(x[:max_len]) + [padding_idx] * (max_len - len(x)) for x in texts])
     texts[(texts == padding_idx).all(axis=1), 0] = unknown_idx
     return texts
+
 
 def get_mlb(mlb_path, labels=None) -> MultiLabelBinarizer:
     if os.path.exists(mlb_path):

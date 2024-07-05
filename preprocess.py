@@ -35,6 +35,7 @@ def main(text_path, tokenized_path, label_path, vocab_path, emb_path, w2v_model,
 
     if not os.path.exists(vocab_path):
         logger.info(F'Building Vocab. {text_path}')
+        logger.info(F'Building Vocab. {vocab_size}')
         with open(text_path) as fp:
             vocab, emb_init = build_vocab(fp, w2v_model, vocab_size=vocab_size)
         np.save(vocab_path, vocab)

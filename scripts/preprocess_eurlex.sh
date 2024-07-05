@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-DATA_PATH=/p/realai/guangxu/2020xmtc/deep_data
-DATASET=EUR-Lex
+DATA_PATH=/p/realai/sneha/cornet2/CorNet/data
+DATASET=EUR-Lex-2
 
 python preprocess.py \
 --text-path $DATA_PATH/$DATASET/train_texts.txt \

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-DATA_PATH=/p/realai/guangxu/2020xmtc/deep_data
-#DATASET=AmazonCat-13K
-DATASET=Wiki-500K
+DATA_PATH=/p/realai/sneha/cornet2/CorNet/data
+DATASET=Mesh-2022-100K
+# DATASET=Wiki-500K
 
 python preprocess.py \
 --text-path $DATA_PATH/$DATASET/train_raw_texts.txt \

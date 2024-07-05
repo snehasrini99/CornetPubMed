@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-DATA_PATH=/p/realai/guangxu/2020xmtc/deep_data
+DATA_PATH=/p/realai/sneha/cornet2/CorNet/data
 
-DATASET=EUR-Lex
-#DATASET=AmazonCat-13K
+# DATASET=EUR-Lex
+# DATASET=AmazonCat-13K
+# DATASET=Mesh-2022
+DATASET=Mesh-2022-100K
 #DATASET=Wiki-500K
 
 #MODEL=XMLCNN

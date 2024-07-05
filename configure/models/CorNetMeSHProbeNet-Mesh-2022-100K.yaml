@@ -1,0 +1,20 @@
+name: CorNetMeSHProbeNet
+
+model:
+  hidden_size: 300
+  n_layers: 2
+  n_probes: 5
+  dropout: 0.5
+
+train:
+  batch_size: 40
+  nb_epoch: 30
+  swa_warmup: 10
+
+valid:
+  batch_size: 40
+
+predict:
+  batch_size: 40
+#/p/realai/sneha/cornet2/CorNet/data/Mesh-2022
+path: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022-100K/models

@@ -16,5 +16,5 @@ valid:
 
 predict:
   batch_size: 200
-
-path: /p/realai/sneha/cornet2/CorNet/data/AmazonCat-13K/models
+#/p/realai/sneha/cornet2/CorNet/data/Mesh-2022
+path: /p/realai/sneha/cornet2/CorNet/data/Mesh-2022/models
