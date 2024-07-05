@@ -1,8 +1,22 @@
 # Ignore log files
 *.log
+*.txt
 
 # Ignore node_modules folder
-data/
+data/EUR-Lex-2
+data/allMeSH_2022.zip
+data/AmazonCat-13K
+data/EUR-Lex
+data/glove
+data/glove.zip 
+data/Mesh-2022
+data/Mesh-2022-100K
+data/Mesh-2022-100K
+data/allMeSH_2022.json
+data/glove.840B.300d.gensim
+data/glove.840B.300d.gensim
+data/glove.840B.300d.gensim.vectors.npy
+
 
 # Ignore dist folder
 # dist/
